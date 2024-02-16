@@ -1,0 +1,19 @@
+{
+    "name": "mario/examen",
+    "type": "project",
+    "require": {
+        "philo/laravel-blade": "^3.1"
+    },
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Mario\\Examen\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "marioraldaz",
+            "email": "marioraldaz@gmail.com"
+        }
+    ]
+}
