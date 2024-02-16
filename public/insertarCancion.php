@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insertar Cancion</title>
-</head>
-
-<body>
     <?php
         require '../vendor/autoload.php';
         use Mario\Examen\DBConnection;
+        use Mario\Examen\Cancion;
+        use Mario\Examen\Genero;
+        use Mario\Examen\Interprete;
+
         use Philo\Blade\Blade;
 
         DBConnection::getConnection();
         $views = '../views';
         $cache = '../cache';
         $blade = new Blade($views, $cache);
+        $generos = Genero::getGeneros();
+        $interpretes = Interprete::getInterpretes();
+        echo $blade->view()->make('viewInsertarCancion',['generos'=>$generos,'interpretes'=>$interpretes]);
         
-        echo $blade->view()->make('viewInsertarCancion')
-    ?>
-</body>
+        if(isset($_POST['submit'])){
 
-</html>
+            $cancion = new Cancion($_POST['titulo'], $_POST['idgenero'], $_POST['idinterprete']);
+            $cancion->insert();
+        }
