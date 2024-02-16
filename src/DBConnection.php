@@ -45,7 +45,7 @@ class DBConnection {
           }
 
           if($use_db){
-              $DBFile = file_get_contents("./bbdd.sql"); //Ahora cogerá la base de datos de ese directorio, por lo que podemos usar esta clase en cualquier directorio y usará el fichero con ese nombre;
+              $DBFile = file_get_contents("../bbdd.sql"); //Ahora cogerá la base de datos de ese directorio, por lo que podemos usar esta clase en cualquier directorio y usará el fichero con ese nombre;
               $connection->exec($DBFile);
           }
       }
